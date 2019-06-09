@@ -9,6 +9,8 @@ Welcome to asysync's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   
+.. include:: description.rst
 
 
 
