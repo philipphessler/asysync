@@ -9,9 +9,13 @@ def get_absolute_path(filename):
 
 def read_variable_from_meta_file(variable):
     def get_variable_name(line):
+        if "=" not in line:
+            return ""
         return line[:line.index("=")].strip()
         
     def get_variable_value(line):
+        if "=" not in line:
+            return ""
         return line[line.index("=")+1:].strip().strip("\"")
 
     def get_matching_lines(fobj, str):
