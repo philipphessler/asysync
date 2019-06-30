@@ -1,3 +1,4 @@
+import io
 import os
 from setuptools import setup
 
@@ -15,14 +16,14 @@ def read_variable_from_meta_file(variable):
         return [line for line in fobj if get_variable_name(line) == str]
 
     def read_variable_from_file(filename, variable):
-        with open(get_absolute_path(filename), encoding="utf8") as fobj:
+        with io.open(get_absolute_path(filename), encoding="utf8") as fobj:
             matching_lines = get_matching_lines(fobj, variable)
             return get_variable_value(matching_lines[0])
     
     return read_variable_from_file("asysync/meta.py", variable)
     
 def read_description_file():
-    with open(get_absolute_path("docs/description.rst"), encoding="utf8") as fobj:
+    with io.open(get_absolute_path("docs/description.rst"), encoding="utf8") as fobj:
         lines = fobj.readlines()
         return "".join(lines).strip()
 
